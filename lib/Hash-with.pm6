@@ -41,7 +41,7 @@ Hash-with - Roles for automatically mapping keys in hashes
   say %h2<A>;    # 42
 
   sub ordered($a) { $a.comb.sort.join }
-  my %h3 does Hash-with[&ordered] = oof => 42;  # order all keys
+  my %h3 does Hash-with[&ordered] = oof => 42;  # sort characters of key
   say %h3<foo>;  # 42
 
 =head1 DESCRIPTION
