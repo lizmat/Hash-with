@@ -8,7 +8,7 @@ Hash-with - Roles for automatically mapping keys in hashes
 SYNOPSIS
 ========
 
-    use Hash::with;
+    use Hash-with;
 
     my %h1 does Hash-lc = A => 42;             # map all keys to lowercase
     say %h1<a>;    # 42
@@ -17,7 +17,7 @@ SYNOPSIS
     say %h2<A>;    # 42
 
     sub ordered($a) { $a.comb.sort.join }
-    my %h3 does Hash-with[&ordered] = oof => 42;  # order all keys
+    my %h3 does Hash-with[&ordered] = oof => 42;  # sort characters of key
     say %h3<foo>;  # 42
 
 DESCRIPTION

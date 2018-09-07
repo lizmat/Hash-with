@@ -1,11 +1,11 @@
 use v6.c;
 
-role Hash-with:ver<0.0.1>:auth<cpan:ELIZABETH>[&mapper] {
-    method AT-KEY(\key)              { nextwith(key.&mapper)        }
-    method EXISTS-KEY(\key)          { nextwith(key.&mapper)        }
-    method DELETE-KEY(\key)          { nextwith(key.&mapper)        }
-    method STORE_AT_KEY(\key,\value) { nextwith(key.&mapper, value) }
-    method BIND-KEY(\key,\value)     { nextwith(key.&mapper, value) }
+role Hash-with:ver<0.0.2>:auth<cpan:ELIZABETH>[&mapper] {
+    method AT-KEY(\key)              { nextwith(mapper(key))        }
+    method EXISTS-KEY(\key)          { nextwith(mapper(key))        }
+    method DELETE-KEY(\key)          { nextwith(mapper(key))        }
+    method STORE_AT_KEY(\key,\value) { nextwith(mapper(key), value) }
+    method BIND-KEY(\key,\value)     { nextwith(mapper(key), value) }
 }
 
 role Hash-lc {
@@ -32,7 +32,7 @@ Hash-with - Roles for automatically mapping keys in hashes
 
 =head1 SYNOPSIS
 
-  use Hash::with;
+  use Hash-with;
 
   my %h1 does Hash-lc = A => 42;             # map all keys to lowercase
   say %h1<a>;    # 42
