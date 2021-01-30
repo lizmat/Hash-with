@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/lizmat/Hash-with.svg?branch=master)](https://travis-ci.org/lizmat/Hash-with)
-
 NAME
 ====
 
@@ -64,7 +62,7 @@ Source can be located at: https://github.com/lizmat/Hash-with . Comments and Pul
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018 Elizabeth Mattijsen
+Copyright 2018,2021 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

@@ -1,27 +1,27 @@
 use v6.c;
 
-role Hash-with:ver<0.0.2>:auth<cpan:ELIZABETH>[&mapper] {
-    method AT-KEY(\key)              { nextwith(mapper(key))        }
-    method EXISTS-KEY(\key)          { nextwith(mapper(key))        }
-    method DELETE-KEY(\key)          { nextwith(mapper(key))        }
-    method STORE_AT_KEY(\key,\value) { nextwith(mapper(key), value) }
-    method BIND-KEY(\key,\value)     { nextwith(mapper(key), value) }
+role Hash-with:ver<0.0.3>:auth<cpan:ELIZABETH>[&mapper] {
+    method AT-KEY(::?ROLE:D: \key)              { nextwith(mapper(key))        }
+    method EXISTS-KEY(::?ROLE:D: \key)          { nextwith(mapper(key))        }
+    method DELETE-KEY(::?ROLE:D: \key)          { nextwith(mapper(key))        }
+    method STORE_AT_KEY(::?ROLE:D: \key,\value) { nextwith(mapper(key), value) }
+    method BIND-KEY(::?ROLE:D: \key,\value)     { nextwith(mapper(key), value) }
 }
 
 role Hash-lc {
-    method AT-KEY(\key)              { nextwith(key.lc)        }
-    method EXISTS-KEY(\key)          { nextwith(key.lc)        }
-    method DELETE-KEY(\key)          { nextwith(key.lc)        }
-    method STORE_AT_KEY(\key,\value) { nextwith(key.lc, value) }
-    method BIND-KEY(\key,\value)     { nextwith(key.lc, value) }
+    method AT-KEY(::?ROLE:D: \key)              { nextwith(key.lc)        }
+    method EXISTS-KEY(::?ROLE:D: \key)          { nextwith(key.lc)        }
+    method DELETE-KEY(::?ROLE:D: \key)          { nextwith(key.lc)        }
+    method STORE_AT_KEY(::?ROLE:D: \key,\value) { nextwith(key.lc, value) }
+    method BIND-KEY(::?ROLE:D: \key,\value)     { nextwith(key.lc, value) }
 }
 
 role Hash-uc {
-    method AT-KEY(\key)              { nextwith(key.uc)        }
-    method EXISTS-KEY(\key)          { nextwith(key.uc)        }
-    method DELETE-KEY(\key)          { nextwith(key.uc)        }
-    method STORE_AT_KEY(\key,\value) { nextwith(key.uc, value) }
-    method BIND-KEY(\key,\value)     { nextwith(key.uc, value) }
+    method AT-KEY(::?ROLE:D: \key)              { nextwith(key.uc)        }
+    method EXISTS-KEY(::?ROLE:D: \key)          { nextwith(key.uc)        }
+    method DELETE-KEY(::?ROLE:D: \key)          { nextwith(key.uc)        }
+    method STORE_AT_KEY(::?ROLE:D: \key,\value) { nextwith(key.uc, value) }
+    method BIND-KEY(::?ROLE:D: \key,\value)     { nextwith(key.uc, value) }
 }
 
 =begin pod
@@ -86,10 +86,10 @@ Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018 Elizabeth Mattijsen
+Copyright 2018,2021 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
 =end pod
 
-# vim: ft=perl6 expandtab sw=4
+# vim: expandtab shiftwidth=4

@@ -20,4 +20,4 @@ is %h3<foo>, 42,    'does ordered case give right answer';
 is %h3<ofo>, 42,    'does mixed case give right answer';
 is %h3.keys, "foo", 'was a ordered case key stored';
 
-# vim: ft=perl6 expandtab sw=4
+# vim: expandtab shiftwidth=4

@@ -2,6 +2,10 @@ Revision history for Hash-with
 
 {{$NEXT}}
 
+0.0.3  2021-01-30T14:08:31+01:00
+    - Make sure methods only take instances
+    - Update copyright year
+
 0.0.2  2018-09-07T11:49:25+02:00
     - Use more natural procedural mapper, rather than making it a method call
 
