@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/lizmat/Hash-with/workflows/test/badge.svg)](https://github.com/lizmat/Hash-with/actions)
+
 NAME
 ====
 
@@ -55,14 +57,14 @@ The role that will convert all keys of a hash according to a `mapper` function b
 AUTHOR
 ======
 
-Elizabeth Mattijsen <liz@wenzperl.nl>
+Elizabeth Mattijsen <liz@raku.rocks>
 
 Source can be located at: https://github.com/lizmat/Hash-with . Comments and Pull Requests are welcome.
 
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018,2021 Elizabeth Mattijsen
+Copyright 2018, 2021 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
