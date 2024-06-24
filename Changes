@@ -2,6 +2,12 @@ Revision history for Hash-with
 
 {{$NEXT}}
 
+0.0.5  2024-06-24T22:17:40+02:00
+    - Modernize test file extension
+    - Modernize pod
+    - Add sponsor link and button
+    - Update copyright year
+
 0.0.4  2021-09-10T11:21:47+02:00
     - Change file extension to .rakumod
     - Migrate to zef ecosystem

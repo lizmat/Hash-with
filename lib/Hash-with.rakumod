@@ -1,6 +1,4 @@
-use v6.c;
-
-role Hash-with:ver<0.0.4>:auth<zef:lizmat>[&mapper] {
+role Hash-with[&mapper] {
     method AT-KEY(::?ROLE:D: \key)              { nextwith(mapper(key))        }
     method EXISTS-KEY(::?ROLE:D: \key)          { nextwith(mapper(key))        }
     method DELETE-KEY(::?ROLE:D: \key)          { nextwith(mapper(key))        }
@@ -32,17 +30,21 @@ Hash-with - Roles for automatically mapping keys in hashes
 
 =head1 SYNOPSIS
 
-  use Hash-with;
+=begin code :lang<raku>
 
-  my %h1 does Hash-lc = A => 42;             # map all keys to lowercase
-  say %h1<a>;    # 42
+use Hash-with;
 
-  my %h2 does Hash-uc = a => 42;             # map all keys to uppercase
-  say %h2<A>;    # 42
+my %h1 does Hash-lc = A => 42;             # map all keys to lowercase
+say %h1<a>;    # 42
 
-  sub ordered($a) { $a.comb.sort.join }
-  my %h3 does Hash-with[&ordered] = oof => 42;  # sort characters of key
-  say %h3<foo>;  # 42
+my %h2 does Hash-uc = a => 42;             # map all keys to uppercase
+say %h2<A>;    # 42
+
+sub ordered($a) { $a.comb.sort.join }
+my %h3 does Hash-with[&ordered] = oof => 42;  # sort characters of key
+say %h3<foo>;  # 42
+
+=end code
 
 =head1 DESCRIPTION
 
@@ -53,8 +55,12 @@ Hash::with provides several C<role>s that can be mixed in with a C<Hash>.
 The role that will convert all keys of a hash to their B<lowercase> equivalent
 before being used to access the hash.
 
-  my %h1 does Hash-lc = A => 42;             # map all keys to lowercase
-  say %h1<a>;    # 42
+=begin code :lang<raku>
+
+my %h1 does Hash-lc = A => 42;             # map all keys to lowercase
+say %h1<a>;    # 42
+
+=end code
 
 This is in fact an optimized version of C<does Hash-with[&lc]>.
 
@@ -63,8 +69,12 @@ This is in fact an optimized version of C<does Hash-with[&lc]>.
 The role that will convert all keys of a hash to their B<uppercase> equivalent
 before being used to access the hash.
 
-  my %h2 does Hash-uc = a => 42;             # map all keys to uppercase
-  say %h2<A>;    # 42
+=begin code :lang<raku>
+
+my %h2 does Hash-uc = a => 42;             # map all keys to uppercase
+say %h2<A>;    # 42
+
+=end code
 
 This is in fact an optimized version of C<does Hash-with[&uc]>.
 
@@ -73,9 +83,13 @@ This is in fact an optimized version of C<does Hash-with[&uc]>.
 The role that will convert all keys of a hash according to a C<mapper> function
 before being used to access the hash.
 
-  sub ordered($a) { $a.comb.sort.join }
-  my %h3 does Hash-with[&ordered] = oof => 42;  # order all keys
-  say %h3<foo>;  # 42
+=begin code :lang<raku>
+
+sub ordered($a) { $a.comb.sort.join }
+my %h3 does Hash-with[&ordered] = oof => 42;  # order all keys
+say %h3<foo>;  # 42
+
+=end code
 
 =head1 AUTHOR
 
@@ -84,9 +98,13 @@ Elizabeth Mattijsen <liz@raku.rocks>
 Source can be located at: https://github.com/lizmat/Hash-with . Comments and
 Pull Requests are welcome.
 
+If you like this module, or what I’m doing more generally, committing to a
+L<small sponsorship|https://github.com/sponsors/lizmat/>  would mean a great
+deal to me!
+
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018, 2021 Elizabeth Mattijsen
+Copyright 2018, 2021, 2024 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
