@@ -1,22 +1,36 @@
 use Test;
 use Hash-with;
 
-plan 9;
+plan 23;
 
 my %h1 does Hash-lc = "A", 42;
 is %h1<a>, 42,    'does lower case give right answer';
 is %h1<A>, 42,    'does upper case give right answer';
+is-deeply %h1<A>:exists, True, 'does it exist?';
 is %h1.keys, "a", 'was a lower case key stored';
+is-deeply (%h1<A> := 666), 666, 'can we bind to it';
+is-deeply %h1<A>:delete, 666, 'can it be removed';
+is %h1.elems, 0, 'is it empty now';
 
 my %h2 does Hash-uc = a => 42;             # map all keys to uppercase
 is %h2<a>, 42,    'does lower case give right answer';
 is %h2<A>, 42,    'does upper case give right answer';
 is %h2.keys, "A", 'was a upper case key stored';
+is-deeply %h2<A>:exists, True, 'does it exist?';
+is %h2.keys, "A", 'was a lower case key stored';
+is-deeply (%h2<A> := 666), 666, 'can we bind to it';
+is-deeply %h2<A>:delete, 666, 'can it be removed';
+is %h2.elems, 0, 'is it empty now';
 
 sub ordered($a) { $a.comb.sort.join }
 my %h3 does Hash-with[&ordered] = oof => 42;  # order all keys
 is %h3<foo>, 42,    'does ordered case give right answer';
 is %h3<ofo>, 42,    'does mixed case give right answer';
 is %h3.keys, "foo", 'was a ordered case key stored';
+is-deeply %h3<ofo>:exists, True, 'does it exist?';
+is %h3.keys, "foo", 'was a correct key stored';
+is-deeply (%h3<ofo> := 666), 666, 'can we bind to it';
+is-deeply %h3<ofo>:delete, 666, 'can it be removed';
+is %h3.elems, 0, 'is it empty now';
 
 # vim: expandtab shiftwidth=4

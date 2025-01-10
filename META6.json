@@ -18,6 +18,7 @@
   ],
   "source-url": "https://github.com/lizmat/Hash-with.git",
   "tags": [
+    "HASH",
     "UTILS"
   ],
   "test-depends": [
